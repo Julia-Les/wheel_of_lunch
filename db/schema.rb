@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170922210655) do
 
   create_table "annkissamers", force: :cascade do |t|
@@ -33,6 +34,26 @@ ActiveRecord::Schema.define(version: 20170922210655) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "annkissamer2_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "website"
+    t.string "phone"
+    t.string "category"
+    t.string "price_range"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "rating"
+    t.string "notes"
+    t.integer "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
