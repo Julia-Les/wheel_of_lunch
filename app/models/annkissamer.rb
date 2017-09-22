@@ -1,0 +1,2 @@
+class Annkissamer < ApplicationRecord
+end

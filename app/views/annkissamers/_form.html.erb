@@ -1,0 +1,32 @@
+<%= form_with(model: annkissamer, local: true) do |form| %>
+  <% if annkissamer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(annkissamer.errors.count, "error") %> prohibited this annkissamer from being saved:</h2>
+
+      <ul>
+      <% annkissamer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :annkissamer_first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :annkissamer_last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: :annkissamer_email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
