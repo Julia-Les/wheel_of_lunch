@@ -79,4 +79,19 @@ class IterationsController < ApplicationController
     def iteration_params
       params.require(:iteration).permit(:start_date, :end_date)
     end
+
+    def generate_match
+      sql = "id NOT IN (
+               select id from annkissamers 
+               inner join matches
+                 on annkissamers.id = matches.ak_1_id 
+                 OR on annkissamers.id = matches.ak_2_id)
+                   and match.iteration_id = '#{@iteration.id}' 
+              )"
+
+      unmatched = ::Annkissamer.where(sql)
+      matched = [unmatched.delete_at(rand(array.length)), unmatched.delete_at(rand(array.length))]
+
+      match.create(iteration_id: @iteration.id, ak_1_id: matched[0].id, ak_2_id: matched[1].id)
+    end
 end
