@@ -10,5 +10,14 @@
   <%= @iteration.end_date %>
 </p>
 
-<%= link_to 'Edit', edit_iteration_path(@iteration) %> |
-<%= link_to 'Back', iterations_path %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= button_to "generate_matches", { :controller => 'iterations' },
+  :method => :put %>
+
+      <button type="submit" class="btn btn-danger">SPIN THAT WHEEL</button>
+    </div>
+  </div>
+</div>

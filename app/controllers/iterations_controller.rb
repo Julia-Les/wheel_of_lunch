@@ -12,6 +12,14 @@ class IterationsController < ApplicationController
   def show
   end
 
+  def most_recent
+    @iteration = Iteration.last
+  end
+
+  def generate_matches
+    flash[:success] = "hey!"
+  end
+
   # GET /iterations/new
   def new
     @iteration = Iteration.new

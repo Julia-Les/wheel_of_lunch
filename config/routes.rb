@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :iterations
   resources :annkissamers
 
-  root 'iterations#show'
+  root :to => "iterations#show", :id => Iteration.last.id
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
