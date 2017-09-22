@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170922201449) do
+ActiveRecord::Schema.define(version: 20170922210655) do
 
   create_table "annkissamers", force: :cascade do |t|
     t.string "first_name"
@@ -21,17 +21,18 @@ ActiveRecord::Schema.define(version: 20170922201449) do
   end
 
   create_table "iterations", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
   end
 
   create_table "matches", force: :cascade do |t|
-    t.integer "annkissamer_id"
+    t.integer "annkissamer1_id"
     t.integer "iteration_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "annkissamer2_id"
   end
 
 end
